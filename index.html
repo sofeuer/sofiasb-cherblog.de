@@ -171,6 +171,48 @@
             font-weight: 500;
         }
 
+        .quote-section {
+            max-width: 800px;
+            margin: 4rem auto 4rem;
+            padding: 2.5rem;
+            background: linear-gradient(135deg, rgba(180,139,107,0.08) 0%, rgba(212,184,150,0.06) 100%);
+            border-left: 5px solid #b48b6b;
+            border-radius: 8px;
+            text-align: center;
+            cursor: text;
+            transition: all 0.25s ease;
+        }
+
+        .quote-section:hover {
+            background: linear-gradient(135deg, rgba(180,139,107,0.12) 0%, rgba(212,184,150,0.1) 100%);
+            box-shadow: 0 6px 20px rgba(84,62,42,0.1);
+        }
+
+        .quote-title {
+            font-size: 0.85rem;
+            color: #9e7656;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .quote-text {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: #5a4332;
+            line-height: 1.8;
+            font-family: 'Playfair Display', serif;
+            word-wrap: break-word;
+        }
+
+        .quote-info {
+            font-size: 0.8rem;
+            color: #9e7656;
+            margin-top: 1rem;
+            font-style: normal;
+        }
+
         .articles {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -343,7 +385,13 @@
     <main class="content">
         <h2 class="section-title">Aktuelle Artikel</h2>
         <p class="section-subtitle">Lesen Sie die neuesten Beiträge</p>
-        
+
+        <div class="quote-section" id="quoteSection" ondblclick="editQuote()">
+            <div class="quote-title">Zitat des Monats</div>
+            <div class="quote-text" id="quoteText">Je mehr du liest, desto mehr wirst du wissen. Je mehr du lernst, desto mehr Orte wirst du besuchen.</div>
+            <div class="quote-info">(Doppelklick zum Bearbeiten)</div>
+        </div>
+
         <div class="articles" id="artikel">
             <a href="article-top-buecher.html" class="article-card">
                 <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=400&h=180&fit=crop&crop=center" alt="TOP-Bücher des Monats" class="card-image">
@@ -377,6 +425,26 @@
             <p class="footer-text">📧 kontakt@sofiasb.de</p>
         </div>
     </footer>
+    <script>
+        const quoteEl = document.getElementById('quoteText');
+        const quoteSection = document.getElementById('quoteSection');
+
+        function loadQuote() {
+            const saved = localStorage.getItem('monthlyQuote');
+            if (saved) quoteEl.textContent = saved;
+        }
+
+        function editQuote() {
+            const current = quoteEl.textContent;
+            const newQuote = prompt('Neues Zitat eingeben:', current);
+            if (newQuote !== null && newQuote.trim() !== '') {
+                quoteEl.textContent = newQuote;
+                localStorage.setItem('monthlyQuote', newQuote);
+            }
+        }
+
+        loadQuote();
+    </script>
 </body>
 </html>
 
