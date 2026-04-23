@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Verlass dich nicht auf den Klappentext - Sofia's Blog">
-    <title>Verlass dich nicht auf den Klappentext</title>
+    <meta name="description" content="Wie finde ich ein gutes Buch für mich? - Sofia's Blog">
+    <title>Wie finde ich ein gutes Buch für mich?</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -15,6 +15,8 @@
         nav ul { list-style: none; display: flex; gap: 1.8rem; }
         nav a { color: #5a4332; text-decoration: none; font-weight: 500; }
         .hero { background: linear-gradient(135deg, #e7d3b4 0%, #f7eedb 100%); padding: 6rem 2rem 4rem; text-align: center; }
+        .hero-content { display: flex; flex-direction: column; align-items: center; gap: 2rem; }
+        .hero-image { width: 300px; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.15); }
         .hero h2 { font-size: 3rem; margin-bottom: 1rem; font-family: 'Playfair Display', serif; }
         .hero p { max-width: 720px; margin: 0 auto; color: #5b4533; }
         .content { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
@@ -40,8 +42,11 @@
         </nav>
     </header>
     <section class="hero">
-        <h2>Verlass dich nicht auf den Klappentext</h2>
-        <p>Warum Marketing-Texte nicht immer die Wahrheit über Bücher erzählen</p>
+        <div class="hero-content">
+            <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=300&h=200&fit=crop&crop=center" alt="Bücherregal mit verschiedenen Büchern" class="hero-image">
+            <h2>Wie finde ich ein gutes Buch für mich?</h2>
+            <p>Warum Marketing-Texte nicht immer die Wahrheit über Bücher erzählen</p>
+        </div>
     </section>
     <main class="content">
         <p>Du stehst in der Buchhandlung oder stöberst online nach neuen Lektüren. Der Klappentext verspricht eine spannende Geschichte voller Abenteuer, Romantik und überraschender Wendungen. Doch wenn du das Buch schließlich liest, stellt sich heraus: Es ist ganz anders als erwartet.</p>

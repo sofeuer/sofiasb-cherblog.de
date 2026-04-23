@@ -15,6 +15,8 @@
         nav ul { list-style: none; display: flex; gap: 1.8rem; }
         nav a { color: #5a4332; text-decoration: none; font-weight: 500; }
         .hero { background: linear-gradient(135deg, #e7d3b4 0%, #f7eedb 100%); padding: 6rem 2rem 4rem; text-align: center; }
+        .hero-content { display: flex; flex-direction: column; align-items: center; gap: 2rem; }
+        .hero-image { width: 300px; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.15); }
         .hero h2 { font-size: 3rem; margin-bottom: 1rem; font-family: 'Playfair Display', serif; }
         .hero p { max-width: 720px; margin: 0 auto; color: #5b4533; }
         .content { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
@@ -40,8 +42,11 @@
         </nav>
     </header>
     <section class="hero">
-        <h2>Neue Projekte & Ideen</h2>
-        <p>Ein Blick hinter die Kulissen von kommenden Themen, kreativen Plänen und neuen Blogformaten.</p>
+        <div class="hero-content">
+            <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=300&h=200&fit=crop&crop=center" alt="Notizbuch mit kreativen Ideen" class="hero-image">
+            <h2>Neue Projekte & Ideen</h2>
+            <p>Ein Blick hinter die Kulissen von kommenden Themen, kreativen Plänen und neuen Blogformaten.</p>
+        </div>
     </section>
     <main class="content">
         <p>Dieser Beitrag zeigt, wie neue Projekte entstehen und welche Ideen gerade Gestalt annehmen. Es geht um Inspiration, Struktur und darum, wie kleine Schritte größere Vorhaben tragen.</p>

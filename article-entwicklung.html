@@ -15,6 +15,8 @@
         nav ul { list-style: none; display: flex; gap: 1.8rem; }
         nav a { color: #5a4332; text-decoration: none; font-weight: 500; }
         .hero { background: linear-gradient(135deg, #e7d3b4 0%, #f7eedb 100%); padding: 6rem 2rem 4rem; text-align: center; }
+        .hero-content { display: flex; flex-direction: column; align-items: center; gap: 2rem; }
+        .hero-image { width: 300px; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.15); }
         .hero h2 { font-size: 3rem; margin-bottom: 1rem; font-family: 'Playfair Display', serif; }
         .hero p { max-width: 720px; margin: 0 auto; color: #5b4533; }
         .content { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
@@ -40,8 +42,11 @@
         </nav>
     </header>
     <section class="hero">
-        <h2>Bücherrezensionen</h2>
-        <p>Ausgewählte Buchempfehlungen mit persönlichen Eindrücken und ausführlichen Besprechungen.</p>
+        <div class="hero-content">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=200&fit=crop&crop=center" alt="Stapel von Büchern" class="hero-image">
+            <h2>Bücherrezensionen</h2>
+            <p>Ausgewählte Buchempfehlungen mit persönlichen Eindrücken und ausführlichen Besprechungen.</p>
+        </div>
     </section>
     <main class="content">
         <p>Hier teile ich meine liebsten Bücher mit dir – Werke, die mich bewegt haben, die mich zum Nachdenken gebracht haben oder die ich einfach nur genossen habe. Jede Rezension bietet einen Einblick in die Geschichte, meine persönliche Meinung und eine Altersempfehlung.</p>

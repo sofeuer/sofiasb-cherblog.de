@@ -106,6 +106,15 @@
             opacity: 0.92;
         }
 
+        .hero-image {
+            width: 300px;
+            max-width: 90%;
+            display: block;
+            margin: 0 auto 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(84, 62, 42, 0.15);
+        }
+
         .btn {
             display: inline-block;
             background-color: #b48b6b;
@@ -216,6 +225,15 @@
             margin-bottom: 1rem;
         }
 
+        .card-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1.2rem;
+            display: block;
+        }
+
         .article-card h3 {
             color: #4a3826;
             margin-bottom: 1rem;
@@ -314,6 +332,7 @@
 
     <section class="hero" id="startseite">
         <div class="hero-content">
+            <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=300&fit=crop&crop=center" alt="Gemütliches Bücherregal" class="hero-image">
             <h2>Willkommen bei Sofias Bücherblog</h2>
             <p>Ein warmer Ort für längere Texte, tiefe Gedanken und Geschichten, die Raum zum Mitdenken lassen. Hier kannst du in Ruhe mehr lesen und entdecken.</p>
             <a href="articles.html" class="btn">Artikel entdecken</a>
@@ -325,23 +344,23 @@
         <p class="section-subtitle">Lesen Sie die neuesten Beiträge</p>
         
         <div class="articles" id="artikel">
-            <a href="article-inspiration.html" class="article-card">
-                <div class="article-icon">🌟</div>
-                <h3>Inspiration für den Alltag</h3>
-                <p>Tipps & Tricks</p>
-                <p>Entdecken Sie neue Perspektiven und Ideen für einen erfüllteren Alltag. Praktische Ansätze für ein besseres Leben.</p>
+            <a href="article-top-buecher.html" class="article-card">
+                <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=400&h=180&fit=crop&crop=center" alt="TOP-Bücher des Monats" class="card-image">
+                <h3>TOP-Bücher des Monats</h3>
+                <p>Monatliche Buchauswahl</p>
+                <p>Die fünf lesenswertesten Bücher dieses Monats – von Abenteuer über Romance bis hin zu packender Spannung.</p>
             </a>
             
             <a href="article-entwicklung.html" class="article-card">
-                <div class="article-icon">📚</div>
+                <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400&h=180&fit=crop&crop=center" alt="Stapel von Büchern" class="card-image">
                 <h3>Bücherrezensionen</h3>
                 <p>Ausgewählte Buchempfehlungen</p>
                 <p>Ausgewählte Buchempfehlungen mit persönlichen Eindrücken und ausführlichen Besprechungen.</p>
             </a>
 
-            <a href="article-klappentext.html" class="article-card">
-                <div class="article-icon">📖</div>
-                <h3>Verlass dich nicht auf den Klappentext</h3>
+            <a href="article-gutes-buch.html" class="article-card">
+                <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=180&fit=crop&crop=center" alt="Bücherauswahl im Regal" class="card-image">
+                <h3>Wie finde ich ein gutes Buch für mich?</h3>
                 <p>Bessere Buchbewertung</p>
                 <p>Warum Marketing-Texte nicht immer die Wahrheit über Bücher erzählen und wie du bessere Entscheidungen triffst.</p>
             </a>
