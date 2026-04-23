@@ -1,1 +1,379 @@
-Hallo
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sofia's Blog - Gedanken, Tipps und Artikel">
+    <title>Sofia's Blog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.8;
+            color: #4a3826;
+            background: #f4e7d3;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.92);
+            padding: 1.2rem 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(125, 95, 65, 0.12);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h1 {
+            font-size: 1.8rem;
+            color: #5a4332;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #5a4332;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.25s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #b48b6b;
+            transition: width 0.25s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #e7d3b4 0%, #f7eedb 100%);
+            color: #4a3826;
+            padding: 8rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233c2f24' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero h2 {
+            font-size: 3.8rem;
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.05;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin: 0 auto 2.5rem;
+            max-width: 760px;
+            font-weight: 400;
+            opacity: 0.92;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #b48b6b;
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(180, 139, 107, 0.25);
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(180, 139, 107, 0.2);
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+
+        .intro-section {
+            max-width: 900px;
+            margin: 0 auto 4rem;
+            padding: 0 1rem;
+            color: #5b4533;
+        }
+
+        .intro-section p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            line-height: 1.95;
+            color: #5b4533;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: #5a4332;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1rem;
+            color: #7b5d44;
+            margin-bottom: 3rem;
+            font-weight: 500;
+        }
+
+        .articles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .article-card {
+            background: rgba(255, 249, 241, 0.95);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(84, 62, 42, 0.08);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(133, 95, 60, 0.16);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .article-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: #b48b6b;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .article-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .article-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 45px rgba(84, 62, 42, 0.12);
+        }
+
+        .article-card a {
+            color: inherit;
+            text-decoration: none;
+            display: block;
+        }
+
+        .article-card a:hover {
+            text-decoration: none;
+        }
+
+        .article-icon {
+            font-size: 2.7rem;
+            margin-bottom: 1rem;
+        }
+
+        .article-card h3 {
+            color: #4a3826;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .article-card p {
+            color: #7b5d44;
+            font-size: 0.98rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .article-card > p:last-child {
+            color: #5b4533;
+            font-size: 0.98rem;
+            font-weight: 400;
+        }
+
+        footer {
+            background: #d5b897;
+            color: #3f2d20;
+            text-align: center;
+            padding: 4rem 2rem;
+            margin-top: 6rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1.2rem;
+            color: #3f2d20;
+        }
+
+        .footer-text {
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+            }
+
+            .hero h2 {
+                font-size: 2.4rem;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero {
+                padding: 5rem 2rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .intro-section {
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Sofia's Blog</h1>
+            <ul>
+                <li><a href="#startseite">Startseite</a></li>
+                <li><a href="articles.html">Artikel</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="startseite">
+        <div class="hero-content">
+            <h2>Willkommen bei Sofias Bücherblog</h2>
+            <p>Ein warmer Ort für längere Texte, tiefe Gedanken und Geschichten, die Raum zum Mitdenken lassen. Hier kannst du in Ruhe mehr lesen und entdecken.</p>
+            <a href="articles.html" class="btn">Artikel entdecken</a>
+        </div>
+    </section>
+
+    <main class="content">
+        <section class="intro-section">
+            <h2 class="section-title">Mehr Platz für deine Inhalte</h2>
+            <p>Diese Startseite wurde bewusst erweitert, damit lange Texte besser wirken. Der beige Ton schafft eine sanfte Atmosphäre, in der sich Geschichten, Ideen und persönliche Erfahrungen gut entfalten.</p>
+            <p>Ob du längere Einleitungen, ausführliche Gedanken oder kleine Essays schreiben möchtest: Der Aufbau ist auf Lesefreundlichkeit ausgelegt. Die Texte stehen im Mittelpunkt, und der Raum dazwischen sorgt für Ruhe.</p>
+            <p>Wenn du auf „Artikel“ klickst, lädst du eine eigene Seite mit ausgewählten Beiträgen. So bleibt diese Startseite klar und dennoch inhaltlich reichhaltig.</p>
+        </section>
+
+        <h2 class="section-title">Aktuelle Artikel</h2>
+        <p class="section-subtitle">Lesen Sie die neuesten Beiträge</p>
+        
+        <div class="articles" id="artikel">
+            <a href="article-inspiration.html" class="article-card">
+                <div class="article-icon">🌟</div>
+                <h3>Inspiration für den Alltag</h3>
+                <p>Tipps & Tricks</p>
+                <p>Entdecken Sie neue Perspektiven und Ideen für einen erfüllteren Alltag. Praktische Ansätze für ein besseres Leben.</p>
+            </a>
+            
+            <a href="article-entwicklung.html" class="article-card">
+                <div class="article-icon">💡</div>
+                <h3>Persönliche Entwicklung</h3>
+                <p>Gedanken & Erkenntnisse</p>
+                <p>Praktische Ratschläge und tiefgehende Überlegungen über persönliches Wachstum und Selbstverbesserung.</p>
+            </a>
+            
+            <a href="article-projekte.html" class="article-card">
+                <div class="article-icon">🚀</div>
+                <h3>Neue Projekte & Ideen</h3>
+                <p>Updates & Projekte</p>
+                <p>Erfahren Sie von neuen Projekten, innovativen Ideen und spannenden Entwicklungen auf diesem Blog.</p>
+            </a>
+        </div>
+    </main>
+
+    <footer id="kontakt">
+        <div class="footer-content">
+            <h3 class="footer-title">Sofia's Blog</h3>
+            <p class="footer-text">&copy; 2026 Alle Rechte vorbehalten.</p>
+            <p class="footer-text">📧 kontakt@sofiasb.de</p>
+        </div>
+    </footer>
+</body>
+</html>
+

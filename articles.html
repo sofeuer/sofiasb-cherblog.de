@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Alle Artikel von Sofia's Blog">
+    <title>Artikel - Sofia's Blog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.85; color: #4a3826; background: #f4e7d3; }
+        header { background: rgba(255,255,255,0.95); padding: 1.2rem 0; box-shadow: 0 2px 20px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(125, 95, 65, 0.12); }
+        nav { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
+        nav h1 { font-size: 1.8rem; color: #5a4332; font-family: 'Playfair Display', serif; font-weight: 700; }
+        nav ul { list-style: none; display: flex; gap: 2rem; }
+        nav a { color: #5a4332; text-decoration: none; font-weight: 500; font-size: 0.95rem; position: relative; }
+        nav a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: #b48b6b; transition: width 0.25s ease; }
+        nav a:hover::after { width: 100%; }
+        .hero { background: linear-gradient(135deg, #e7d3b4 0%, #f7eedb 100%); color: #4a3826; padding: 7rem 2rem 5rem; text-align: center; }
+        .hero h2 { font-size: 3rem; margin-bottom: 1rem; font-family: 'Playfair Display', serif; font-weight: 700; }
+        .hero p { max-width: 720px; margin: 0 auto; color: #5b4533; font-size: 1.05rem; }
+        .content { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
+        .intro-text { margin-bottom: 3rem; color: #5b4533; line-height: 1.95; }
+        .articles-grid { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+        .article-card { background: rgba(255,249,241,0.95); padding: 2rem; border-radius: 16px; border: 1px solid rgba(133,95,60,0.16); box-shadow: 0 12px 35px rgba(84,62,42,0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .article-card:hover { transform: translateY(-8px); box-shadow: 0 18px 40px rgba(84,62,42,0.12); }
+        .article-card h3 { margin-bottom: 0.8rem; color: #4a3826; font-size: 1.4rem; }
+        .article-card p { color: #7b5d44; font-size: 0.98rem; margin-bottom: 1rem; }
+        .article-card a { text-decoration: none; color: #b48b6b; font-weight: 600; }
+        .article-card a:hover { text-decoration: underline; }
+        .footer { background: #d5b897; color: #3f2d20; text-align: center; padding: 3rem 2rem; }
+        .footer p { margin-bottom: 0.7rem; font-weight: 300; }
+        @media (max-width: 768px) { .hero { padding: 5rem 2rem 3rem; } nav { flex-direction: column; gap: 1rem; } }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Sofia's Blog</h1>
+            <ul>
+                <li><a href="index.html">Startseite</a></li>
+                <li><a href="articles.html">Artikel</a></li>
+                <li><a href="index.html#kontakt">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Alle Artikel</h2>
+            <p>Hier findest du eine Auswahl längerer Beiträge, die sich intensiv mit Alltag, persönlicher Entwicklung und neuen Projekten beschäftigen.</p>
+        </div>
+    </section>
+    <main class="content">
+        <div class="intro-text">
+            <p>Diese Seite ist dein Einstieg in die ausführlichen Artikel. Klicke auf einen Beitrag, um eine eigene Seite mit mehr Raum für Inhalte, Gedanken und Geschichten zu öffnen.</p>
+            <p>Die Artikel sind bewusst als eigene Seiten angelegt, damit du beim Lesen nicht von der Startseite abgelenkt wirst. So bleibt jede Geschichte klar, ruhig und leicht zugänglich.</p>
+        </div>
+
+        <div class="articles-grid">
+            <div class="article-card">
+                <h3>Inspiration für den Alltag</h3>
+                <p>Praktische Ideen, wie du kleine Veränderungen nutzt, um mehr Leichtigkeit und Freude in den Tag zu bringen.</p>
+                <a href="article-inspiration.html">Zum Artikel →</a>
+            </div>
+            <div class="article-card">
+                <h3>Persönliche Entwicklung</h3>
+                <p>Gedanken zur eigenen Entwicklung, Achtsamkeit und wie du langfristig mehr Balance in dein Leben bringst.</p>
+                <a href="article-entwicklung.html">Zum Artikel →</a>
+            </div>
+            <div class="article-card">
+                <h3>Neue Projekte & Ideen</h3>
+                <p>Ein Blick hinter die Kulissen, neue Pläne und kreative Projekte, die diesen Blog lebendig halten.</p>
+                <a href="article-projekte.html">Zum Artikel →</a>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2026 Sofia's Blog</p>
+        <p>📧 kontakt@sofiasb.de</p>
+    </footer>
+</body>
+</html>
