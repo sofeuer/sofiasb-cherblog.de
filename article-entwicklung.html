@@ -26,6 +26,11 @@
         .book h3 { margin-bottom: 0.8rem; color: #4a3826; font-size: 1.6rem; font-family: 'Playfair Display', serif; }
         .book-meta { color: #7b5d44; font-size: 0.95rem; margin-bottom: 1rem; font-weight: 500; }
         .book p { margin-bottom: 1rem; line-height: 1.95; }
+        .like-btn { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 0.8rem; padding: 0.45rem 1.1rem; border: 2px solid #e0c4a8; border-radius: 50px; background: transparent; color: #9e7656; font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all 0.25s ease; }
+        .like-btn:hover { border-color: #c0392b; color: #c0392b; background: rgba(192,57,43,0.06); }
+        .like-btn.liked { border-color: #c0392b; color: #c0392b; background: rgba(192,57,43,0.08); }
+        .like-btn .heart { font-size: 1.1rem; transition: transform 0.2s ease; }
+        .like-btn.liked .heart { transform: scale(1.25); }
         .back-link { display: inline-block; margin-top: 2rem; color: #b48b6b; text-decoration: none; font-weight: 600; }
         .footer { background: #d5b897; color: #3f2d20; text-align: center; padding: 3rem 2rem; }
         .footer p { margin-bottom: 0.7rem; font-weight: 300; }
@@ -58,6 +63,9 @@
             <p><strong>Inhalt:</strong> Diese fesselnde Fantasy-Geschichte erzählt von zwei Freundinnen – eine strahlend schön, die andere von außergewöhnlichem Aussehen – die in die geheimnisvollen Schulen für Gut und Böse aufgenommen werden. Doch das Schicksal spielt ihnen einen Streich: Jede landet in der verkehrten Schule. Was folgt, ist eine Reise voller abenteuerlicher Missionen, rätselhafter Aufgaben und tiefgreifender Freundschaftsprüfungen.</p>
             <p><strong>Meine Empfehlung:</strong> Dieses Buch besticht durch die gelungene Vermischung von romantischen Elementen und atemberaubenden Abenteuern. Es ist eine Geschichte über Vertrauen, Mut und das Hinterfragen von Erwartungen. Allerdings warnt sei ich dich vor: Jedes Buch dieser Serie endet mit zahlreichen offenen Fragen, die nach mehr drängen – eine willkommene Herausforderung für alle, die sich gerne tiefer in eine Geschichte verwickeln lassen.</p>
             <p><strong>Altersempfehlung:</strong> Ab 10 Jahren</p>
+            <button class="like-btn" onclick="toggleLike(this, 'school-good-evil')">
+                <span class="heart">♡</span><span class="count">0</span> Gefällt mir
+            </button>
         </div>
 
         <div class="book">
@@ -66,6 +74,9 @@
             <p><strong>Inhalt:</strong> Diese unvergessliche Buchreihe verfolgt das Leben junger Frauen im 19. Jahrhundert, die sich in schwierigsten Situationen befinden. In einer Welt, in der die Heirat für Frauen eine unvermeidliche Pflicht darstellt, entdecken diese mutigen Heldinnen eine geheime Frauenorganisation – die Agentur. Diese führt darin aus, was die Gesellschaft verboten hat: Sie treffen Aufträge von Frauen, die von ihren Ehemännern misshandelt werden. In gefährlichen und komplizierten Missionen zeigen diese Frauen außergewöhnlichen Mut – und am Ende siegt stets das Gute.</p>
             <p><strong>Meine Empfehlung:</strong> Dies ist meine absolute Lieblingsbuchreihe. Sie verdeutlicht mit eindrucksvoller Kraft, wie Frauen im 19. Jahrhundert gelitten haben und wie wenig Rechte und Freiheiten sie besaßen. Zugleich erzählt sie von Mut, Solidarität und dem Widerstand gegen Ungerechtigkeit. Diese Bücher feiern nicht nur Abenteuerlust, sondern auch das Bewusstsein – jede Mission offenbart die Grauen einer unterdrückten Gesellschaft und die Stärke derjenigen, die es wagten, dagegen anzukämpfen.</p>
             <p><strong>Altersempfehlung:</strong> Ab 12 Jahren</p>
+            <button class="like-btn" onclick="toggleLike(this, 'agency-for-scandal')">
+                <span class="heart">♡</span><span class="count">0</span> Gefällt mir
+            </button>
         </div>
 
         <div class="book">
@@ -74,6 +85,9 @@
             <p><strong>Inhalt:</strong> Diese Geschichte dreht sich um eine ältere Mutter, die nach dem Verlust ihres Ehemanns und eines Sohnes ein Hotel auf Usedom führt. Überraschenderweise kommt ihre jüngste Tochter aus Berlin zu Besuch, um ihr bei der Leitung des Hotels zu helfen, da der Tod sie schwer getroffen hat. Parallel dazu führt ihr zweiter Sohn ein Hotel in Berlin und gerät in kriminelle Machenschaften.</p>
             <p><strong>Meine Empfehlung:</strong> Ich kann dieses Buch nicht uneingeschränkt empfehlen. Die Erzählung wechselt häufig zwischen verschiedenen Perspektiven, was die Lesbarkeit erschwert und den Lesefluss unterbricht. Persönlich habe ich es nicht so gut gefunden, da die ständigen Perspektivwechsel die Geschichte fragmentiert wirken lassen.</p>
             <p><strong>Altersempfehlung:</strong> Ab 10 Jahren</p>
+            <button class="like-btn" onclick="toggleLike(this, 'das-grand-hotel')">
+                <span class="heart">♡</span><span class="count">0</span> Gefällt mir
+            </button>
         </div>
 
         <div class="book">
@@ -82,6 +96,9 @@
             <p><strong>Inhalt:</strong> Diese berührende Geschichte handelt von einem Mädchen, das Jura studiert und sich in einer schwierigen finanziellen Situation befindet. Genau in diesem Moment plant ihr Vater, die Familienautowerkstatt zu verkaufen. Die Protagonistin, die früher erfolgreich Formel 3 gefahren ist, möchte ihrem Vater helfen und lässt sich auf eine vorgetäuschte Beziehung mit einem Formel-2-Fahrer ein. Diese ungewöhnliche Vereinbarung wird erfolgreich und bringt ihr genug Geld ein, um ihrem Vater beizustehen. Doch dieser lehnt die Hilfe ab, verkauft die Werkstatt und arbeitet schließlich als Mechaniker für den Formel-2-Fahrer.</p>
             <p><strong>Meine Empfehlung:</strong> Ich empfehle dieses Buch besonders denjenigen, die keine intensive Spannung suchen. Die Geschichte entwickelt sich ruhig und ohne dramatische Höhepunkte, was sie zu einer entspannten Lektüre macht. Es ist eine charmante Erzählung über Familie, Verantwortung und unerwartete Wendungen im Leben.</p>
             <p><strong>Altersempfehlung:</strong> Ab 11 Jahren</p>
+            <button class="like-btn" onclick="toggleLike(this, 'vielleicht-irgendwann')">
+                <span class="heart">♡</span><span class="count">0</span> Gefällt mir
+            </button>
         </div>
 
         <a href="articles.html" class="back-link">← Zurück zur Artikelseite</a>
@@ -90,6 +107,28 @@
         <p>&copy; 2026 Sofia's Blog</p>
         <p>📧 kontakt@sofiasb.de</p>
     </footer>
+    <script>
+        function toggleLike(btn, id) {
+            const liked = localStorage.getItem('like-' + id) === '1';
+            const newLiked = !liked;
+            const count = parseInt(localStorage.getItem('count-' + id) || '0');
+            const newCount = newLiked ? count + 1 : Math.max(0, count - 1);
+            localStorage.setItem('like-' + id, newLiked ? '1' : '0');
+            localStorage.setItem('count-' + id, newCount);
+            btn.classList.toggle('liked', newLiked);
+            btn.querySelector('.heart').textContent = newLiked ? '♥' : '♡';
+            btn.querySelector('.count').textContent = newCount;
+        }
+
+        document.querySelectorAll('.like-btn').forEach(btn => {
+            const id = btn.getAttribute('onclick').match(/'([^']+)'\)/)[1];
+            const liked = localStorage.getItem('like-' + id) === '1';
+            const count = parseInt(localStorage.getItem('count-' + id) || '0');
+            if (liked) btn.classList.add('liked');
+            btn.querySelector('.heart').textContent = liked ? '♥' : '♡';
+            btn.querySelector('.count').textContent = count;
+        });
+    </script>
 </body>
 </html>
 
