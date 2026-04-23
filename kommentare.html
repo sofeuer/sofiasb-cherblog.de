@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kommentare - Sofia's Blog">
+    <title>Kommentare - Sofia's Blog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.9; color: #4a3826; background: #f4e7d3; }
+        header { background: rgba(255,255,255,0.95); padding: 1rem 0; box-shadow: 0 2px 20px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(125,95,65,0.12); }
+        nav { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
+        nav h1 { font-size: 1.7rem; color: #5a4332; font-family: 'Playfair Display', serif; }
+        nav ul { list-style: none; display: flex; gap: 1.8rem; }
+        nav a { color: #5a4332; text-decoration: none; font-weight: 500; transition: color 0.25s; }
+        nav a:hover { color: #b48b6b; }
+        .hero { background: linear-gradient(135deg, #e7d3b4 0%, #f7eedb 100%); padding: 6rem 2rem 4rem; text-align: center; }
+        .hero h2 { font-size: 3rem; margin-bottom: 1rem; font-family: 'Playfair Display', serif; }
+        .hero p { max-width: 720px; margin: 0 auto; color: #5b4533; font-size: 1.05rem; }
+        .content { max-width: 760px; margin: 0 auto; padding: 4rem 2rem; }
+        .form-card { background: rgba(255,249,241,0.95); padding: 2.5rem; border-radius: 16px; border: 1px solid rgba(133,95,60,0.16); box-shadow: 0 10px 35px rgba(84,62,42,0.08); }
+        .form-group { margin-bottom: 1.6rem; }
+        label { display: block; font-weight: 600; color: #4a3826; margin-bottom: 0.5rem; font-size: 0.95rem; }
+        input, textarea, select { width: 100%; padding: 0.85rem 1rem; border: 1px solid rgba(133,95,60,0.3); border-radius: 10px; font-family: 'Inter', sans-serif; font-size: 0.97rem; color: #4a3826; background: #fdf7f0; transition: border-color 0.25s, box-shadow 0.25s; }
+        input:focus, textarea:focus, select:focus { outline: none; border-color: #b48b6b; box-shadow: 0 0 0 3px rgba(180,139,107,0.15); }
+        textarea { resize: vertical; min-height: 140px; }
+        .btn-submit { display: inline-block; background: #b48b6b; color: white; padding: 0.9rem 2.5rem; border: none; border-radius: 50px; font-family: 'Inter', sans-serif; font-size: 0.97rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 8px 25px rgba(180,139,107,0.25); }
+        .btn-submit:hover { background: #9e7656; transform: translateY(-3px); box-shadow: 0 12px 30px rgba(180,139,107,0.3); }
+        .note { font-size: 0.88rem; color: #9e7656; margin-top: 1.2rem; }
+        .footer { background: #d5b897; color: #3f2d20; text-align: center; padding: 3rem 2rem; margin-top: 4rem; }
+        .footer p { margin-bottom: 0.7rem; font-weight: 300; }
+        @media (max-width: 768px) { nav { flex-direction: column; gap: 0.8rem; } .form-card { padding: 1.8rem; } }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Sofia's Blog</h1>
+            <ul>
+                <li><a href="index.html">Startseite</a></li>
+                <li><a href="articles.html">Artikel</a></li>
+                <li><a href="kommentare.html">Kommentare</a></li>
+                <li><a href="index.html#kontakt">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero">
+        <h2>Kommentare</h2>
+        <p>Ich freue mich über deine Gedanken, Meinungen und Buchempfehlungen. Schreib mir gerne!</p>
+    </section>
+    <main class="content">
+        <div class="form-card">
+            <!-- Formspree: Erstelle ein kostenloses Konto auf formspree.io und ersetze DEINE_FORM_ID durch deine persönliche ID -->
+            <form action="https://formspree.io/f/DEINE_FORM_ID" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Dein Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-Mail-Adresse <span style="font-weight:400;color:#9e7656;">(optional)</span></label>
+                    <input type="email" id="email" name="email" placeholder="deine@email.de">
+                </div>
+                <div class="form-group">
+                    <label for="artikel">Bezieht sich auf</label>
+                    <select id="artikel" name="artikel">
+                        <option value="">— Allgemeiner Kommentar —</option>
+                        <option value="TOP-Bücher des Monats">TOP-Bücher des Monats</option>
+                        <option value="Bücherrezensionen">Bücherrezensionen</option>
+                        <option value="Wie finde ich ein gutes Buch für mich?">Wie finde ich ein gutes Buch für mich?</option>
+                        <option value="Neue Projekte & Ideen">Neue Projekte &amp; Ideen</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="kommentar">Kommentar</label>
+                    <textarea id="kommentar" name="kommentar" placeholder="Dein Kommentar..." required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Kommentar absenden</button>
+                <p class="note">Dein Kommentar wird direkt an mich weitergeleitet. Ich antworte so bald wie möglich.</p>
+            </form>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2026 Sofia's Blog</p>
+        <p>📧 kontakt@sofiasb.de</p>
+    </footer>
+</body>
+</html>
