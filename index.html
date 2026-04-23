@@ -58,22 +58,10 @@
             font-weight: 500;
             font-size: 0.95rem;
             transition: all 0.25s ease;
-            position: relative;
         }
 
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #b48b6b;
-            transition: width 0.25s ease;
-        }
-
-        nav a:hover::after {
-            width: 100%;
+        nav a:hover {
+            color: #b48b6b;
         }
 
         .hero {
