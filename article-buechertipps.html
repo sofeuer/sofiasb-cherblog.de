@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Büchertipps - Sofia's Blog">
+    <title>Büchertipps</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.9; color: #4a3826; background: #f4e7d3; }
+        header { background: rgba(255,255,255,0.95); padding: 1rem 0; box-shadow: 0 2px 20px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(125,95,65,0.12); }
+        nav { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
+        nav h1 { font-size: 1.7rem; color: #5a4332; font-family: 'Playfair Display', serif; }
+        nav ul { list-style: none; display: flex; gap: 1.8rem; }
+        nav a { color: #5a4332; text-decoration: none; font-weight: 500; }
+        .hero { background: linear-gradient(135deg, #e7d3b4 0%, #f7eedb 100%); padding: 6rem 2rem 4rem; text-align: center; }
+        .hero h2 { font-size: 3rem; margin-bottom: 1rem; font-family: 'Playfair Display', serif; }
+        .hero p { max-width: 720px; margin: 0 auto; color: #5b4533; }
+        .content { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
+        .content p { margin-bottom: 1.6rem; color: #5b4533; }
+        .book-tip { background: rgba(255,249,241,0.95); padding: 1.5rem; margin-bottom: 2rem; border-radius: 12px; border-left: 4px solid #b48b6b; }
+        .book-tip h3 { margin-bottom: 0.5rem; color: #4a3826; font-size: 1.4rem; font-family: 'Playfair Display', serif; }
+        .book-tip .author { color: #7b5d44; font-size: 0.95rem; margin-bottom: 0.8rem; font-weight: 500; }
+        .book-tip p { margin-bottom: 0.8rem; line-height: 1.8; }
+        .back-link { display: inline-block; margin-top: 2rem; color: #b48b6b; text-decoration: none; font-weight: 600; }
+        .footer { background: #d5b897; color: #3f2d20; text-align: center; padding: 3rem 2rem; }
+        .footer p { margin-bottom: 0.7rem; font-weight: 300; }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Sofia's Blog</h1>
+            <ul>
+                <li><a href="index.html">Startseite</a></li>
+                <li><a href="articles.html">Artikel</a></li>
+                <li><a href="index.html#kontakt">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero">
+        <h2>Büchertipps</h2>
+        <p>Entdecken Sie meine persönlichen Lieblingsbücher – von spannenden Abenteuern bis zu berührenden Geschichten.</p>
+    </section>
+    <main class="content">
+        <p>Hier teile ich einige meiner liebsten Bücher mit dir. Diese Empfehlungen basieren auf persönlichen Leseerfahrungen und sollen dir helfen, neue Lieblingsbücher zu finden. Die Auswahl ist vielfältig und reicht von Jugendbüchern bis zu anspruchsvolleren Werken.</p>
+
+        <div class="book-tip">
+            <h3>Die Verzauberte Bibliothek</h3>
+            <p class="author">Autorin: Cornelia Funke</p>
+            <p>Eine magische Geschichte über eine Bibliothek, die ihre Besucher in die Welten der Bücher hineinzieht. Perfekt für alle, die Bücher lieben und sich nach Abenteuern sehnen.</p>
+        </div>
+
+        <div class="book-tip">
+            <h3>Das geheime Leben der Bäume</h3>
+            <p class="author">Autor: Peter Wohlleben</p>
+            <p>Ein faszinierendes Sachbuch über die Intelligenz und das Sozialleben von Bäumen. Es verändert die Art, wie man die Natur betrachtet.</p>
+        </div>
+
+        <div class="book-tip">
+            <h3>Die kleine Hexe</h3>
+            <p class="author">Autorin: Otfried Preußler</p>
+            <p>Eine klassische Geschichte über eine kleine Hexe, die nicht so böse sein kann, wie sie sollte. Ein zeitloser Kinderbuchklassiker voller Humor und Magie.</p>
+        </div>
+
+        <div class="book-tip">
+            <h3>Der kleine Prinz</h3>
+            <p class="author">Autor: Antoine de Saint-Exupéry</p>
+            <p>Eine philosophische Erzählung über Freundschaft, Liebe und die wichtigen Dinge im Leben. Ein Buch, das man in jedem Alter neu entdecken kann.</p>
+        </div>
+
+        <div class="book-tip">
+            <h3>Harry Potter und der Stein der Weisen</h3>
+            <p class="author">Autorin: J.K. Rowling</p>
+            <p>Der Beginn einer magischen Saga über einen Jungen, der entdeckt, dass er ein Zauberer ist. Spannung, Freundschaft und Magie in einem.</p>
+        </div>
+
+        <a href="articles.html" class="back-link">← Zurück zur Artikelseite</a>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2026 Sofia's Blog</p>
+        <p>📧 kontakt@sofiasb.de</p>
+    </footer>
+</body>
+</html>
