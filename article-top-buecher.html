@@ -30,6 +30,12 @@
         .rank-entry .author { color: #7b5d44; font-size: 0.95rem; font-weight: 500; margin-bottom: 1rem; }
         .rank-entry p { color: #5b4533; margin-bottom: 0; line-height: 1.95; }
         .back-link { display: inline-block; margin-top: 2rem; color: #b48b6b; text-decoration: none; font-weight: 600; }
+        .heart-section { text-align: center; margin: 2.5rem 0 1rem; }
+        .heart-btn { background: none; border: none; cursor: pointer; font-size: 2.5rem; transition: transform 0.2s ease; line-height: 1; }
+        .heart-btn:hover { transform: scale(1.15); }
+        .heart-btn.liked { animation: pop 0.3s ease; }
+        .heart-count { display: block; margin-top: 0.4rem; color: #9e7656; font-size: 0.95rem; font-weight: 600; }
+        @keyframes pop { 0%,100%{transform:scale(1)} 50%{transform:scale(1.35)} }
         .footer { background: #d5b897; color: #3f2d20; text-align: center; padding: 3rem 2rem; }
         .footer p { margin-bottom: 0.7rem; font-weight: 300; }
         @media (max-width: 768px) { nav { flex-direction: column; gap: 0.8rem; } }
@@ -91,11 +97,35 @@
             <p>Yasmin Shakarami erschafft in ihrem Debütroman eine Welt, in der Licht und Schatten nicht nur bildlich gesprochen im Widerstreit liegen. Die Geschichte folgt einer Protagonistin, die sich zwischen zwei Welten bewegt und dabei herausfindet, wem sie wirklich vertrauen kann. Atmosphärisch dicht, sprachlich ausdrucksstark und mit einem Ende, das nachhallt – ein vielversprechender Einstieg in ein neues Autoren-Schaffen.</p>
         </div>
 
+        <div class="heart-section">
+            <button class="heart-btn" id="heartBtn" onclick="toggleHeart()">♡</button>
+            <span class="heart-count" id="heartCount">0 Herzchen</span>
+        </div>
         <a href="articles.html" class="back-link">← Zurück zur Artikelseite</a>
     </main>
     <footer class="footer">
         <p>&copy; 2026 Sofia's Blog</p>
         <p>📧 kontakt@sofiasb.de</p>
     </footer>
+    <script>
+        const ID = 'top-buecher';
+        const btn = document.getElementById('heartBtn');
+        const countEl = document.getElementById('heartCount');
+        function update() {
+            const liked = localStorage.getItem('like-' + ID) === '1';
+            const count = parseInt(localStorage.getItem('count-' + ID) || '0');
+            btn.textContent = liked ? '♥' : '♡';
+            btn.classList.toggle('liked', liked);
+            countEl.textContent = count + ' Herzchen';
+        }
+        function toggleHeart() {
+            const liked = localStorage.getItem('like-' + ID) === '1';
+            const count = parseInt(localStorage.getItem('count-' + ID) || '0');
+            localStorage.setItem('like-' + ID, liked ? '0' : '1');
+            localStorage.setItem('count-' + ID, liked ? Math.max(0, count - 1) : count + 1);
+            update();
+        }
+        update();
+    </script>
 </body>
 </html>
