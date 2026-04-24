@@ -1,0 +1,24 @@
+/* Shared Global Styles */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; line-height: 1.9; color: #4a3826; background: #f4e7d3; }
+header { background: rgba(255,255,255,0.95); padding: 1rem 0; box-shadow: 0 2px 20px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(125,95,65,0.12); }
+nav { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
+nav h1 { font-size: 1.7rem; color: #5a4332; font-family: 'Playfair Display', serif; }
+nav ul { list-style: none; display: flex; gap: 1.8rem; }
+nav a { color: #5a4332; text-decoration: none; font-weight: 500; transition: color 0.2s; }
+nav a:hover { color: #b48b6b; }
+.footer { background: #d5b897; color: #3f2d20; text-align: center; padding: 3rem 2rem; }
+.back-link { display: inline-block; margin-top: 2rem; color: #b48b6b; text-decoration: none; font-weight: 600; }
+
+/* Shared Hero styles */
+.hero { background: linear-gradient(135deg, #e7d3b4 0%, #f7eedb 100%); padding: 6rem 2rem 4rem; text-align: center; }
+.hero-image { width: 300px; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.15); margin-bottom: 1rem; }
+.hero h2 { font-size: 3rem; margin-bottom: 1rem; font-family: 'Playfair Display', serif; }
+
+/* Heart/Like Button Styles */
+.like-btn, .heart-btn { cursor: pointer; transition: transform 0.2s; }
+.liked { color: #c0392b; }
+@keyframes pop { 
+    0%, 100% { transform: scale(1); } 
+    50% { transform: scale(1.35); } 
+}
