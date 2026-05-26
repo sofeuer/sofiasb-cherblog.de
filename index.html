@@ -322,6 +322,98 @@
             font-weight: 300;
         }
 
+        .playground-section {
+            background: rgba(255, 255, 255, 0.92);
+            padding: 2.5rem;
+            border-radius: 24px;
+            box-shadow: 0 16px 40px rgba(84, 62, 42, 0.08);
+            margin-top: 4rem;
+        }
+
+        .playground-wrapper {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 1.8rem;
+            align-items: stretch;
+        }
+
+        .playground-panel,
+        .playground-preview {
+            background: #fff;
+            border-radius: 20px;
+            padding: 1.4rem;
+            border: 1px solid rgba(204, 174, 140, 0.25);
+        }
+
+        .playground-header {
+            font-size: 1.05rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            color: #4a3826;
+        }
+
+        .playground-tabs {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .playground-tab {
+            border: 1px solid #d8c3a5;
+            background: #fbf6ef;
+            color: #5a4332;
+            padding: 0.6rem 1rem;
+            border-radius: 999px;
+            cursor: pointer;
+            font-size: 0.92rem;
+            transition: all 0.2s ease;
+        }
+
+        .playground-tab.active {
+            background: #b48b6b;
+            color: white;
+            border-color: #b48b6b;
+        }
+
+        .code-editor {
+            width: 100%;
+            min-height: 340px;
+            padding: 1rem;
+            border: 1px solid #ddc4a2;
+            border-radius: 16px;
+            background: #fdf8f2;
+            color: #3b2e24;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            resize: vertical;
+        }
+
+        .preview-frame {
+            width: 100%;
+            min-height: 360px;
+            border: 1px solid #d8c3a5;
+            border-radius: 16px;
+            background: white;
+        }
+
+        .playground-actions {
+            margin-top: 1rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-secondary {
+            background: #e8d5be;
+            color: #5a4332;
+        }
+
+        .btn-secondary:hover {
+            background: #d9bf9b;
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -368,6 +460,7 @@
             <ul>
                 <li><a href="#startseite">Startseite</a></li>
                 <li><a href="articles.html">Artikel</a></li>
+                <li><a href="#playground">Coding</a></li>
                 <li><a href="#kontakt">Kontakt</a></li>
             </ul>
         </nav>
@@ -414,6 +507,30 @@
                 <p>Warum Marketing-Texte nicht immer die Wahrheit über Bücher erzählen und wie du bessere Entscheidungen triffst.</p>
             </a>
         </div>
+
+        <section class="playground-section" id="playground">
+            <h2 class="section-title">Coding Playground</h2>
+            <p class="section-subtitle">Übe hier HTML, CSS und JavaScript und sieh die Vorschau direkt daneben.</p>
+            <div class="playground-wrapper">
+                <div class="playground-panel">
+                    <div class="playground-header">Editor</div>
+                    <div class="playground-tabs">
+                        <button type="button" class="playground-tab active" data-mode="html">HTML</button>
+                        <button type="button" class="playground-tab" data-mode="css">CSS</button>
+                        <button type="button" class="playground-tab" data-mode="js">JS</button>
+                    </div>
+                    <textarea id="codeEditor" class="code-editor" spellcheck="false"></textarea>
+                    <div class="playground-actions">
+                        <button type="button" class="btn" id="runCodeBtn">Vorschau aktualisieren</button>
+                        <button type="button" class="btn btn-secondary" id="resetCodeBtn">Zurücksetzen</button>
+                    </div>
+                </div>
+                <div class="playground-preview">
+                    <div class="playground-header">Live Vorschau</div>
+                    <iframe id="previewFrame" class="preview-frame" sandbox="allow-scripts"></iframe>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer id="kontakt">
@@ -441,8 +558,86 @@
             }
         }
 
+        const editor = document.getElementById('codeEditor');
+        const previewFrame = document.getElementById('previewFrame');
+        const tabs = document.querySelectorAll('.playground-tab');
+        const runBtn = document.getElementById('runCodeBtn');
+        const resetBtn = document.getElementById('resetCodeBtn');
+
+        const defaultCode = {
+            html: `<h1>Willkommen im Coding Playground</h1>\n<p>Schreibe dein HTML hier. Verwende beliebige Elemente, um die Vorschau zu testen.</p>\n<button onclick="alert('Dein Code funktioniert!')">Klicke mich</button>`,
+            css: `body {\n  margin: 0;\n  font-family: Inter, sans-serif;\n  background: #f7f0e8;\n  color: #3b2e24;\n} \nh1 {\n  color: #b48b6b;\n} \nbutton {\n  padding: 0.75rem 1rem;\n  border: none;\n  border-radius: 999px;\n  background: #b48b6b;\n  color: white;\n  cursor: pointer;\n}`,
+            js: `console.log('Viel Spaß beim Coden!');`
+        };
+
+        let currentMode = localStorage.getItem('playgroundMode') || 'html';
+        const codeState = {
+            html: localStorage.getItem('playgroundHtml') || defaultCode.html,
+            css: localStorage.getItem('playgroundCss') || defaultCode.css,
+            js: localStorage.getItem('playgroundJs') || defaultCode.js,
+        };
+
+        function setActiveTab(mode) {
+            currentMode = mode;
+            localStorage.setItem('playgroundMode', mode);
+            tabs.forEach(tab => {
+                tab.classList.toggle('active', tab.dataset.mode === mode);
+            });
+            updateEditor();
+        }
+
+        function updateEditor() {
+            if (!editor) return;
+            editor.value = codeState[currentMode] || '';
+            editor.focus();
+        }
+
+        function saveCurrentCode() {
+            if (!editor) return;
+            codeState[currentMode] = editor.value;
+            localStorage.setItem(`playground${currentMode.charAt(0).toUpperCase() + currentMode.slice(1)}`, editor.value);
+        }
+
+        function renderPreview() {
+            saveCurrentCode();
+            const preview = `<!DOCTYPE html><html><head><meta charset="UTF-8"><style>${codeState.css}</style></head><body>${codeState.html}<script>${codeState.js}<\/script></body></html>`;
+            if (previewFrame) previewFrame.srcdoc = preview;
+        }
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => setActiveTab(tab.dataset.mode));
+        });
+
+        if (editor) {
+            editor.addEventListener('input', () => saveCurrentCode());
+        }
+
+        if (runBtn) {
+            runBtn.addEventListener('click', renderPreview);
+        }
+
+        if (resetBtn) {
+            resetBtn.addEventListener('click', () => {
+                if (confirm('Möchtest du den Code auf die Standardvorlage zurücksetzen?')) {
+                    codeState.html = defaultCode.html;
+                    codeState.css = defaultCode.css;
+                    codeState.js = defaultCode.js;
+                    localStorage.setItem('playgroundHtml', codeState.html);
+                    localStorage.setItem('playgroundCss', codeState.css);
+                    localStorage.setItem('playgroundJs', codeState.js);
+                    updateEditor();
+                    renderPreview();
+                }
+            });
+        }
+
+        function loadPlayground() {
+            setActiveTab(currentMode);
+            renderPreview();
+        }
+
         loadQuote();
+        loadPlayground();
     </script>
 </body>
 </html>
-Kannst du das Buch a bookboyfriend for autumm von freya miles bei Bücherrezensionen hinzufügen mit diesen Infos: Im Buch geht es um eine Frau namens Ella die ihren Traum verwirklichen will, unzwar sie will ein Buchcafe eroffnen, da Ella es liebt einen Chai Latte zu trinken und ein Buch zu lesen. Doch genau an der Eröffnung kommt der Berühmte Buchhändler Cederick Wright ins Cafe und sagt Ella dass ich Cafe nicht lange halten, da vor dem Cafe seine Buchhandlung und er grose Plane hat. Ella teilt alles mit ihren 3 Followern doch nach einiger Zeit werden es immer mehr. Es entseht groser Streit zwischen den Beiden da Cederick auch ein Buchcafe eroffnet. Doch eine kurze Zeit spater schliesen sich cederick und Ella zusammen, da das Buchcafe von Ella in schutt und asche gerat. Cederick schlagt ella eine Kooperation an und sie werden am ende auch sehr gute Freunde und ein bisschen sogar mehr.
