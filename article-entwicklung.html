@@ -133,14 +133,7 @@
             btn.querySelector('.count').textContent = newCount;
         }
 
-        document.querySelectorAll('.like-btn').forEach(btn => {
-            const id = btn.getAttribute('onclick').match(/'([^']+)'\)/)[1];
-            const liked = localStorage.getItem('like-' + id) === '1';
-            const count = parseInt(localStorage.getItem('count-' + id) || '0');
-            if (liked) btn.classList.add('liked');
-            btn.querySelector('.heart').textContent = liked ? '♥' : '♡';
-            btn.querySelector('.count').textContent = count;
-        });
+       
     </script>
 </body>
 </html>
