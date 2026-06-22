@@ -451,6 +451,8 @@
     <script>
         const quoteEl = document.getElementById('quoteText');
         const quoteSection = document.getElementById('quoteSection');
+        const counterValueEl = document.getElementById('counterValue');
+        const counterNamespace = 'sofiasb-cherblog-de';
 
         function loadQuote() {
             const saved = localStorage.getItem('monthlyQuote');
@@ -466,43 +468,28 @@
             }
         }
 
-        loadQuote();
-        updateCounterText();
-
-        const actionButtons = document.querySelectorAll('a, .btn');
-        actionButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                incrementDailyActions();
-            });
-        });
-
         function getCurrentDateKey() {
-            const now = new Date();
-            return now.toISOString().slice(0, 10);
+            return new Date().toISOString().slice(0, 10);
         }
 
-        function loadDailyActions() {
-            const dateKey = getCurrentDateKey();
-            const stored = localStorage.getItem('dailyActions-' + dateKey);
-            return stored ? parseInt(stored, 10) : 0;
+        function getCounterKey() {
+            return `daily-actions-${getCurrentDateKey()}`;
         }
 
-        function saveDailyActions(count) {
-            const dateKey = getCurrentDateKey();
-            localStorage.setItem('dailyActions-' + dateKey, count);
+        async function updateCounter() {
+            const key = getCounterKey();
+            try {
+                const response = await fetch(`https://api.countapi.xyz/hit/${counterNamespace}/${key}`);
+                const data = await response.json();
+                counterValueEl.textContent = data.value || 0;
+            } catch (error) {
+                console.warn('Counter konnte nicht geladen werden:', error);
+                counterValueEl.textContent = '0';
+            }
         }
 
-        function incrementDailyActions() {
-            const current = loadDailyActions();
-            const next = current + 1;
-            saveDailyActions(next);
-            updateCounterText();
-        }
-
-        function updateCounterText() {
-            const count = loadDailyActions();
-            document.getElementById('counterValue').textContent = count;
-        }
+        loadQuote();
+        updateCounter();
     </script>
 </body>
 </html>
