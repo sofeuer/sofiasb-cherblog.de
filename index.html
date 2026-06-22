@@ -134,6 +134,27 @@
             box-shadow: 0 15px 40px rgba(180, 139, 107, 0.2);
         }
 
+        .counter-box {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1.5rem auto 2rem;
+            padding: 1rem 1.4rem;
+            background: rgba(255,255,255,0.85);
+            border-radius: 999px;
+            border: 1px solid rgba(180,139,107,0.3);
+            color: #5a4332;
+            font-weight: 600;
+            box-shadow: 0 8px 20px rgba(84,62,42,0.08);
+            max-width: 560px;
+        }
+
+        .counter-box strong {
+            color: #b48b6b;
+            margin: 0 0.4rem;
+            font-size: 1.1rem;
+        }
+
         .content {
             max-width: 1200px;
             margin: 0 auto;
@@ -383,6 +404,9 @@
     </section>
 
     <main class="content">
+        <div class="counter-box" id="visitCounter">
+            Heute haben <strong id="counterValue">0</strong> Leute auf der Website etwas gemacht.
+        </div>
         <h2 class="section-title">Aktuelle Artikel</h2>
         <p class="section-subtitle">Lesen Sie die neuesten Beiträge</p>
 
@@ -443,6 +467,42 @@
         }
 
         loadQuote();
+        updateCounterText();
+
+        const actionButtons = document.querySelectorAll('a, .btn');
+        actionButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                incrementDailyActions();
+            });
+        });
+
+        function getCurrentDateKey() {
+            const now = new Date();
+            return now.toISOString().slice(0, 10);
+        }
+
+        function loadDailyActions() {
+            const dateKey = getCurrentDateKey();
+            const stored = localStorage.getItem('dailyActions-' + dateKey);
+            return stored ? parseInt(stored, 10) : 0;
+        }
+
+        function saveDailyActions(count) {
+            const dateKey = getCurrentDateKey();
+            localStorage.setItem('dailyActions-' + dateKey, count);
+        }
+
+        function incrementDailyActions() {
+            const current = loadDailyActions();
+            const next = current + 1;
+            saveDailyActions(next);
+            updateCounterText();
+        }
+
+        function updateCounterText() {
+            const count = loadDailyActions();
+            document.getElementById('counterValue').textContent = count;
+        }
     </script>
 </body>
 </html>
