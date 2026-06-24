@@ -35,7 +35,6 @@
     </style>
     <style>
         /* Immediate inline defensive hide for removed article */
-        a.article-card[href="article-gutes-buch.html"] { display: none !important; }
     </style>
 </head>
 <body>
@@ -75,6 +74,12 @@
                 <p>Ausgewählte Buchempfehlungen mit persönlichen Eindrücken und ausführlichen Besprechungen.</p>
                 <a href="article-entwicklung.html">Zum Artikel →</a>
             </div>
+            <div class="article-card">
+                <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=160&fit=crop&crop=center" alt="Bücherauswahl im Regal" class="card-image">
+                <h3>Wie finde ich ein gutes Buch für mich?</h3>
+                <p>Warum Marketing-Texte nicht immer die Wahrheit über Bücher erzählen.</p>
+                <a href="article-gutes-buch.html">Zum Artikel →</a>
+            </div>
             
         </div>
 
@@ -94,18 +99,6 @@
         <p>&copy; 2026 Sofia's Blog</p>
         <p>📧 kontakt@sofiasb.de</p>
     </footer>
-    <script>
-        // Entferne verbliebene Karten mit dem gelöschten Artikeltitel (falls Seite noch alte Inhalte zeigt)
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('.article-card').forEach(card => {
-                const h3 = card.querySelector('h3');
-                if (!h3) return;
-                const txt = h3.textContent.replace(/\s+/g, ' ').trim();
-                if (txt.includes('Wie finde ich ein gutes Buch')) {
-                    card.remove();
-                }
-            });
-        });
-    </script>
+    
 </body>
 </html>

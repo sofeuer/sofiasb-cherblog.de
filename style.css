@@ -44,5 +44,4 @@ a:hover::after { width: 100%; }
 /* Focus-visible accessibility */
 :focus-visible { outline: 3px solid rgba(180,139,107,0.18); outline-offset: 3px; }
 
-/* Hide lingering deleted article card (defensive) */
-a.article-card[href="article-gutes-buch.html"] { display: none !important; }
+/* defensive rule removed to restore article display */

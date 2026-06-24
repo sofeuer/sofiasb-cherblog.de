@@ -1,6 +1,133 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wie finde ich ein gutes Buch für mich? - Sofia's Blog">
+    <title>Wie finde ich ein gutes Buch für mich?</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.9; color: #4a3826; background: #f4e7d3; }
+        header { background: rgba(255,255,255,0.95); padding: 1rem 0; box-shadow: 0 2px 20px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(125,95,65,0.12); }
+        nav { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
+        nav h1 { font-size: 1.7rem; color: #5a4332; font-family: 'Playfair Display', serif; }
+        nav ul { list-style: none; display: flex; gap: 1.8rem; }
+        nav a { color: #5a4332; text-decoration: none; font-weight: 500; }
+        .hero { background: linear-gradient(135deg, #e7d3b4 0%, #f7eedb 100%); padding: 6rem 2rem 4rem; text-align: center; }
+        .hero-content { display: flex; flex-direction: column; align-items: center; gap: 2rem; }
+        .hero-image { width: 300px; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.15); }
+        .hero h2 { font-size: 3rem; margin-bottom: 1rem; font-family: 'Playfair Display', serif; }
+        .hero p { max-width: 720px; margin: 0 auto; color: #5b4533; }
+        .content { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
+        .content p { margin-bottom: 1.6rem; color: #5b4533; }
+        .content h3 { margin-top: 2.5rem; margin-bottom: 1rem; color: #4a3826; font-size: 1.5rem; font-family: 'Playfair Display', serif; }
+        .content ul { margin-left: 1.5rem; color: #5b4533; }
+        .content li { margin-bottom: 0.8rem; }
+        .quote { background: rgba(180, 139, 107, 0.1); padding: 1.5rem; border-left: 4px solid #b48b6b; margin: 2rem 0; font-style: italic; }
+        .back-link { display: inline-block; margin-top: 2rem; color: #b48b6b; text-decoration: none; font-weight: 600; }
+        .heart-section { text-align: center; margin: 2.5rem 0 1rem; }
+        .heart-btn { background: none; border: none; cursor: pointer; font-size: 2.5rem; transition: transform 0.2s ease; line-height: 1; }
+        .heart-btn:hover { transform: scale(1.15); }
+        .heart-btn.liked { animation: pop 0.3s ease; }
+        .heart-count { display: block; margin-top: 0.4rem; color: #9e7656; font-size: 0.95rem; font-weight: 600; }
+        @keyframes pop { 0%,100%{transform:scale(1)} 50%{transform:scale(1.35)} }
+        .footer { background: #d5b897; color: #3f2d20; text-align: center; padding: 3rem 2rem; }
+        .footer p { margin-bottom: 0.7rem; font-weight: 300; }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Sofia's Blog</h1>
+            <ul>
+                <li><a href="index.html">Startseite</a></li>
+                <li><a href="articles.html">Artikel</a></li>
+                <li><a href="index.html#kontakt">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero">
+        <div class="hero-content">
+            <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=300&h=200&fit=crop&crop=center" alt="Bücherregal mit verschiedenen Büchern" class="hero-image">
+            <h2>Wie finde ich ein gutes Buch für mich?</h2>
+            <p>Warum Marketing-Texte nicht immer die Wahrheit über Bücher erzählen</p>
+        </div>
+    </section>
+    <main class="content">
+        <p>Du stehst in der Buchhandlung oder stöberst online nach neuen Lektüren. Der Klappentext verspricht eine spannende Geschichte voller Abenteuer, Romantik und überraschender Wendungen. Doch wenn du das Buch schließlich liest, stellt sich heraus: Es ist ganz anders als erwartet.</p>
+
+        <p>Das liegt daran, dass Klappentexte nicht von den Autoren geschrieben werden, sondern von Marketing-Profis. Ihr Ziel ist es nicht, das Buch ehrlich zu beschreiben, sondern es so attraktiv wie möglich zu machen, um Verkäufe zu steigern.</p>
+
+        <h3>Warum Klappentexte irreführend sein können</h3>
+        <p>Klappentexte werden von Verlagsmitarbeitern verfasst, die oft nicht einmal das gesamte Buch gelesen haben. Sie konzentrieren sich auf:</p>
+        <ul>
+            <li><strong>Spannung erzeugen:</strong> Übertriebene Beschreibungen von Action und Drama</li>
+            <li><strong>Klischees bedienen:</strong> Sichere Themen wie Liebe, Freundschaft und Heldentum</li>
+            <li><strong>Verkaufsargumente:</strong> Superlative wie "das beste Buch des Jahres" oder "atemberaubend"</li>
+            <li><strong>Spoiler vermeiden:</strong> Wichtige Handlungselemente werden verschwiegen</li>
+        </ul>
+
+        <div class="quote">
+            "Der Klappentext ist wie ein Trailer für einen Film – er zeigt die Highlights, aber nicht die ganze Geschichte."
+        </div>
+
+        <h3>Bessere Alternativen zur Buchbewertung</h3>
+        <p>Statt dich nur auf den Klappentext zu verlassen, nutze diese Quellen für ehrlichere Einschätzungen:</p>
+
+        <h3>1. Leser-Rezensionen</h3>
+        <p>Schaue dir Bewertungen von echten Lesern an. Achte auf Muster: Wenn viele die gleiche Kritik äußern, ist sie wahrscheinlich berechtigt.</p>
+
+        <h3>2. Buchblogs und Literaturkritiken</h3>
+        <p>Unabhängige Buchblogs bieten oft ausführlichere und ehrlichere Rezensionen als Verlagsseiten.</p>
+
+        <h3>3. Probe lesen</h3>
+        <p>Viele Online-Shops bieten Leseproben an. Die ersten Seiten geben einen viel besseren Eindruck als jeder Klappentext.</p>
+
+        <h3>4. Empfehlungen von Freunden</h3>
+        <p>Mündliche Empfehlungen von Menschen, deren Geschmack du kennst, sind oft die zuverlässigsten.</p>
+
+        <h3>6. Lies die ersten 5 Seiten</h3>
+        <p>Wenn dich der Schreibstil dort nicht packt oder du Sätze mehrfach lesen musst, lass es. Es wird meistens nicht besser. Die ersten Seiten zeigen den wahren Stil des Autors – wenn du dich schon am Anfang anstrengen musst, wird das Buch wahrscheinlich nicht zu einem entspannten Leseerlebnis.</p>
+
+        <p>Das nächste Mal, wenn du ein Buch in die Hand nimmst, erinnere dich: Der Klappentext ist Marketing, keine Wahrheit. Lass dich nicht von schönen Worten blenden, sondern suche nach authentischen Meinungen und eigenen Eindrücken.</p>
+
+        <div class="heart-section">
+            <button class="heart-btn" id="heartBtn" onclick="toggleHeart()">♡</button>
+            <span class="heart-count" id="heartCount">0 Herzchen</span>
+        </div>
+        <a href="articles.html" class="back-link">← Zurück zur Artikelseite</a>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2026 Sofia's Blog</p>
+        <p>📧 kontakt@sofiasb.de</p>
+    </footer>
+    <script>
+        const ID = 'gutes-buch';
+        const btn = document.getElementById('heartBtn');
+        const countEl = document.getElementById('heartCount');
+        function update() {
+            const liked = localStorage.getItem('like-' + ID) === '1';
+            const count = parseInt(localStorage.getItem('count-' + ID) || '0');
+            btn.textContent = liked ? '♥' : '♡';
+            btn.classList.toggle('liked', liked);
+            countEl.textContent = count + ' Herzchen';
+        }
+        function toggleHeart() {
+            const liked = localStorage.getItem('like-' + ID) === '1';
+            const count = parseInt(localStorage.getItem('count-' + ID) || '0');
+            localStorage.setItem('like-' + ID, liked ? '0' : '1');
+            localStorage.setItem('count-' + ID, liked ? Math.max(0, count - 1) : count + 1);
+            update();
+        }
+        update();
+    </script>
+</body>
+</html>
+Ich mo<!DOCTYPE html>
+<html lang="de">
+<head>
   <meta charset="utf-8">
   <meta http-equiv="refresh" content="0; url=/articles.html">
   <meta name="robots" content="noindex">
