@@ -485,5 +485,18 @@
         loadQuote();
         updateCounter();
     </script>
+        <script>
+            // Defensive removal of lingering article card (in case of caching)
+            document.addEventListener('DOMContentLoaded', () => {
+                document.querySelectorAll('.article-card').forEach(card => {
+                    const h3 = card.querySelector('h3');
+                    if (!h3) return;
+                    const txt = h3.textContent.replace(/\s+/g, ' ').trim();
+                    if (txt.includes('Wie finde ich ein gutes Buch')) {
+                        card.remove();
+                    }
+                });
+            });
+        </script>
 </body>
 </html>

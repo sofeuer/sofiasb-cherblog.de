@@ -90,5 +90,18 @@
         <p>&copy; 2026 Sofia's Blog</p>
         <p>📧 kontakt@sofiasb.de</p>
     </footer>
+    <script>
+        // Entferne verbliebene Karten mit dem gelöschten Artikeltitel (falls Seite noch alte Inhalte zeigt)
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.article-card').forEach(card => {
+                const h3 = card.querySelector('h3');
+                if (!h3) return;
+                const txt = h3.textContent.replace(/\s+/g, ' ').trim();
+                if (txt.includes('Wie finde ich ein gutes Buch')) {
+                    card.remove();
+                }
+            });
+        });
+    </script>
 </body>
 </html>
