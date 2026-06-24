@@ -71,19 +71,20 @@
                 <p>Ausgewählte Buchempfehlungen mit persönlichen Eindrücken und ausführlichen Besprechungen.</p>
                 <a href="article-entwicklung.html">Zum Artikel →</a>
             </div>
-            <div class="article-card">
-                <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=160&fit=crop&crop=center" alt="Bücherauswahl im Regal" class="card-image">
-                <h3>Wie finde ich ein gutes Buch für mich?</h3>
-                <p>Warum Marketing-Texte nicht immer die Wahrheit über Bücher erzählen.</p>
-                <a href="article-gutes-buch.html">Zum Artikel →</a>
-            </div>
-            <div class="article-card">
-                <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=160&fit=crop&crop=center" alt="Bücherauswahl im Regal" class="card-image">
-                <h3>Wie finde ich ein gutes Buch für mich?</h3>
-                <p>Warum Marketing-Texte nicht immer die Wahrheit über Bücher erzählen.</p>
-                <a href="article-gutes-buch.html">Zum Artikel →</a>
-            </div>
+            <!-- Ein doppelter Eintrag für 'Wie finde ich ein gutes Buch für mich?' entfernt -->
         </div>
+
+        <style>
+            /* Kleine Special-Effects für die Artikelseite */
+            .article-card { transition: transform 0.35s cubic-bezier(.2,.9,.2,1), box-shadow 0.35s; position: relative; overflow: hidden; }
+            .article-card:hover { transform: translateY(-10px) scale(1.01); box-shadow: 0 30px 60px rgba(74,56,38,0.12); }
+            .article-card::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(120deg, rgba(255,255,255,0.02), rgba(255,255,255,0.06)); mix-blend-mode: overlay; opacity: 0; transition: opacity 0.4s; }
+            .article-card:hover::after { opacity: 1; }
+            .card-image { transition: transform 0.6s ease; }
+            .article-card:hover .card-image { transform: scale(1.06) rotate(-0.5deg); }
+            @keyframes shimmer { 0% { background-position: -200% 0 } 100% { background-position: 200% 0 } }
+            .article-card .rank-badge { background: linear-gradient(90deg, #b48b6b, #c8973a); }
+        </style>
     </main>
     <footer class="footer">
         <p>&copy; 2026 Sofia's Blog</p>
