@@ -22,3 +22,24 @@ nav a:hover { color: #b48b6b; }
     0%, 100% { transform: scale(1); } 
     50% { transform: scale(1.35); } 
 }
+
+/* Additional subtle special effects */
+.article-card { border-radius: 14px; overflow: hidden; position: relative; transition: transform 0.35s cubic-bezier(.2,.9,.2,1), box-shadow 0.35s, border-color 0.35s; }
+.article-card:hover { transform: translateY(-10px) scale(1.01); box-shadow: 0 30px 60px rgba(74,56,38,0.12); }
+.article-card::before { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(120deg, rgba(255,255,255,0.02), rgba(255,255,255,0.06)); mix-blend-mode: overlay; opacity: 0; transition: opacity 0.4s; }
+.article-card:hover::before { opacity: 1; }
+.card-image { transition: transform 0.6s ease, filter 0.45s ease; }
+.article-card:hover .card-image { transform: scale(1.06) rotate(-0.4deg); filter: saturate(1.05) contrast(1.02); }
+
+/* Subtle button shine */
+.btn { position: relative; overflow: hidden; }
+.btn::after { content: ''; position: absolute; top: -60%; left: -30%; width: 40%; height: 220%; background: linear-gradient(120deg, rgba(255,255,255,0.06), rgba(255,255,255,0.22), rgba(255,255,255,0.06)); transform: rotate(20deg); transition: transform 0.9s ease; opacity: 0.9; }
+.btn:hover::after { transform: translateX(260%); }
+
+/* Animated link underline */
+a { position: relative; }
+a::after { content: ''; position: absolute; left: 0; bottom: -3px; height: 2px; width: 0; background: linear-gradient(90deg,#b48b6b,#c8973a); transition: width 0.35s ease; }
+a:hover::after { width: 100%; }
+
+/* Focus-visible accessibility */
+:focus-visible { outline: 3px solid rgba(180,139,107,0.18); outline-offset: 3px; }
