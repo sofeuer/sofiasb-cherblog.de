@@ -118,18 +118,23 @@
         }
 
         .seat-figure {
-            max-width: 320px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            max-width: 520px;
             margin: 0 auto 3rem;
-            text-align: center;
+            text-align: left;
         }
 
         .seat-figure a {
             display: inline-block;
+            flex-shrink: 0;
         }
 
         .seat-figure img {
-            width: 220px;
-            max-width: 100%;
+            width: 140px;
             border-radius: 14px;
             box-shadow: 0 12px 30px rgba(84, 62, 42, 0.12);
             transition: transform 0.25s ease;
@@ -137,6 +142,14 @@
 
         .seat-figure img:hover {
             transform: translateY(-2px) scale(1.01);
+        }
+
+        .seat-figure figcaption {
+            font-size: 0.98rem;
+            line-height: 1.6;
+            color: #5b4533;
+            max-width: 320px;
+            margin: 0;
         }
 
         .btn {
