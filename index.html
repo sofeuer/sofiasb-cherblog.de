@@ -117,11 +117,40 @@
             box-shadow: 0 8px 25px rgba(84, 62, 42, 0.15);
         }
 
+        .seat-figure {
+            max-width: 320px;
+            margin: 0 auto 3rem;
+            text-align: center;
+        }
+
+        .seat-figure a {
+            display: inline-block;
+        }
+
+        .seat-figure img {
+            width: 220px;
+            max-width: 100%;
+            border-radius: 14px;
+            box-shadow: 0 12px 30px rgba(84, 62, 42, 0.12);
+            transition: transform 0.25s ease;
+        }
+
+        .seat-figure img:hover {
+            transform: translateY(-2px) scale(1.01);
+        }
+
         .btn {
             display: inline-block;
             background-color: #b48b6b;
             color: white;
             padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(180, 139, 107, 0.25);
+        }
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
@@ -420,9 +449,11 @@
             <div class="quote-info">(Doppelklick zum Bearbeiten)</div>
         </div>
 
-        <figure>
-            <img src="image.png" alt="Ein gemütlicher Sessel neben einem Bücherregal" />
-            <figcaption>Ein gemütlicher Leseplatz für entspannte Sonntage.</figcaption>
+        <figure class="seat-figure">
+            <a href="article-lern-lesemotivation.html" title="Zum Artikel Lern+Lesemotivation">
+                <img src="image.png" alt="Ein gemütlicher Sessel neben einem Bücherregal" />
+            </a>
+            <figcaption>Tippe den Sessel an, um zum neuen Artikel „Lern+Lesemotivation“ zu gelangen.</figcaption>
         </figure>
 
         <div class="articles" id="artikel">
@@ -445,7 +476,12 @@
                 <p>Bessere Buchbewertung</p>
                 <p>Warum Marketing-Texte nicht immer die Wahrheit über Bücher erzählen und wie du bessere Entscheidungen triffst.</p>
             </a>
-            
+            <a href="article-lern-lesemotivation.html" class="article-card">
+                <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=400&h=180&fit=crop&crop=center" alt="Lern- und Lesemotivation" class="card-image">
+                <h3>Lern+Lesemotivation</h3>
+                <p>Mehr Lust auf Lernen und Lesen</p>
+                <p>Praktische Tipps, damit du leichter ins Lernen kommst und wieder mehr Freude am Lesen findest.</p>
+            </a>
         </div>
 
     </main>

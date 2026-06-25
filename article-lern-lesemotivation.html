@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lern+Lesemotivation - Sofia's Blog">
+    <title>Lern+Lesemotivation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.9; color: #4a3826; background: #f4e7d3; }
+        header { background: rgba(255,255,255,0.95); padding: 1.2rem 0; box-shadow: 0 2px 20px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(125,95,65,0.12); }
+        nav { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
+        nav h1 { font-size: 1.8rem; color: #5a4332; font-family: 'Playfair Display', serif; font-weight: 700; }
+        nav ul { list-style: none; display: flex; gap: 2rem; }
+        nav a { color: #5a4332; text-decoration: none; font-weight: 500; font-size: 0.95rem; }
+        nav a:hover { color: #b48b6b; }
+        .hero { background: linear-gradient(135deg, #e7d3b4 0%, #f7eedb 100%); color: #4a3826; padding: 6rem 2rem 4rem; text-align: center; }
+        .hero-content { max-width: 860px; margin: 0 auto; }
+        .hero-image { width: 300px; max-width: 100%; border-radius: 14px; box-shadow: 0 10px 28px rgba(84,62,42,0.14); margin: 0 auto 2rem; display: block; }
+        .hero h2 { font-size: 3rem; margin-bottom: 1rem; font-family: 'Playfair Display', serif; }
+        .hero p { max-width: 720px; margin: 0 auto; color: #5b4533; font-size: 1.05rem; }
+        .content { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
+        .content p { margin-bottom: 1.5rem; color: #5b4533; font-size: 1rem; }
+        .content h3 { margin-top: 2rem; margin-bottom: 1rem; color: #4a3826; font-size: 1.7rem; font-family: 'Playfair Display', serif; }
+        .content ul { margin-left: 1.25rem; margin-bottom: 1.5rem; color: #5b4533; }
+        .content li { margin-bottom: 1rem; line-height: 1.8; }
+        .content li strong { color: #4a3826; }
+        .back-link { display: inline-block; margin-top: 2.5rem; color: #b48b6b; text-decoration: none; font-weight: 600; }
+        .note { background: rgba(180,139,107,0.12); border-left: 4px solid #b48b6b; padding: 1.2rem 1rem; border-radius: 10px; margin: 2rem 0; color: #5b4533; }
+        .footer { background: #d5b897; color: #3f2d20; text-align: center; padding: 3rem 2rem; }
+        .footer p { margin-bottom: 0.7rem; font-weight: 300; }
+        @media (max-width: 768px) { .hero { padding: 5rem 1.5rem 3rem; } nav { flex-direction: column; gap: 1rem; } }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Sofia's Blog</h1>
+            <ul>
+                <li><a href="index.html">Startseite</a></li>
+                <li><a href="articles.html">Artikel</a></li>
+                <li><a href="index.html#kontakt">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero">
+        <div class="hero-content">
+            <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=900&h=500&fit=crop&crop=center" alt="Gemütlicher Sessel mit Büchern" class="hero-image">
+            <h2>Lern+Lesemotivation</h2>
+            <p>Praktische Ideen, damit du leichter ins Lernen kommst und wieder Lust am Lesen bekommst.</p>
+        </div>
+    </section>
+    <main class="content">
+        <p>Manchmal ist der erste Schritt der schwerste: Du willst lernen oder ein Buch lesen, aber die Motivation fehlt. Hier findest du leicht umsetzbare Strategien, die dir helfen, wieder ins Tun zu kommen.</p>
+
+        <h3>Effektive Strategien für mehr Lernmotivation</h3>
+        <ul>
+            <li><strong>Die 15-Minuten-Regel:</strong> Nimm dir vor, nur 15 bis 30 Minuten zu lernen. Die Motivation kommt oft erst beim Tun.</li>
+            <li><strong>Belohnungssysteme:</strong> Setze dir kleine Etappenziele und belohne dich nach einer erfolgreichen Lerneinheit – zum Beispiel mit einem Snack oder etwas Freizeit.</li>
+            <li><strong>Aktives Lernen (Interleaving):</strong> Wechsle regelmäßig zwischen verschiedenen Themen oder Aufgaben, damit dein Gehirn wach bleibt. [[1](https://www.youtube.com/watch?v=7gMiwcV8A8Y&t=122), [2](https://erwachsenenbildung.at/bildungsinfo/lernen-lernen/lernmotivation.php), [3](https://www.youtube.com/shorts/HRCU3dCEjB4), [4](https://www.adlit.org/topics/comprehension/teach-seven-strategies-highly-effective-readers)]</li>
+        </ul>
+
+        <h3>Methoden zur Förderung der Leselust</h3>
+        <ul>
+            <li><strong>Echtes Interesse nutzen:</strong> Die freie Wahl deiner Lektüre – egal ob Comic, Sachbuch oder Roman – steigert die Motivation massiv.</li>
+            <li><strong>Feste Rituale:</strong> Gestalte gemütliche Leseorte, zum Beispiel mit einer eigenen Leseecke, Kissen und guter Beleuchtung.</li>
+            <li><strong>Lesetandems:</strong> Wechsle dich beim Lesen mit deinem Kind oder einem Partner ab. Das nimmt den Druck, und das Lesen fühlt sich gleich leichter an.</li>
+        </ul>
+
+        <div class="note">Wenn du erst einmal gestartet bist, wird das Lernen oft viel einfacher als erwartet. Starte klein, bleib freundlich zu dir selbst und feiere jeden Schritt.</div>
+
+        <a href="index.html" class="back-link">← Zurück zur Startseite</a>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2026 Sofia's Blog</p>
+        <p>📧 kontakt@sofiasb.de</p>
+    </footer>
+</body>
+</html>
