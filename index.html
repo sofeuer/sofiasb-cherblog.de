@@ -119,9 +119,9 @@
 
         .seat-figure {
             display: flex;
-            flex-wrap: wrap;
-            align-items: flex-start;
-            justify-content: center;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: flex-start;
             gap: 1rem;
             max-width: 520px;
             margin: 0 auto 3rem;
@@ -134,7 +134,7 @@
         }
 
         .seat-figure img {
-            width: 70px;
+            width: 60px;
             border-radius: 14px;
             box-shadow: 0 12px 30px rgba(84, 62, 42, 0.12);
             transition: transform 0.25s ease;
@@ -145,12 +145,23 @@
         }
 
         .seat-figure figcaption {
-            font-size: 1.1rem;
-            font-weight: 600;
-            line-height: 1.6;
+            font-size: 1.25rem;
+            font-weight: 700;
+            line-height: 1.5;
             color: #5b4533;
-            max-width: 380px;
+            max-width: 420px;
             margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .seat-figure {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .seat-figure figcaption {
+                text-align: center;
+            }
         }
 
         .btn {
