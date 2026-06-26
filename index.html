@@ -134,7 +134,11 @@
         }
 
         .seat-figure img {
-            width: 60px;
+            width: 48px !important;
+            max-width: 48px !important;
+            height: 36px !important;
+            max-height: 36px !important;
+            object-fit: cover;
             border-radius: 14px;
             box-shadow: 0 12px 30px rgba(84, 62, 42, 0.12);
             transition: transform 0.25s ease;
@@ -435,6 +439,210 @@
                 padding: 0;
             }
         }
+
+        /* ===== NEUE EFFEKTE ===== */
+
+        /* Glow-Effekt für Buttons */
+        .btn {
+            position: relative;
+            box-shadow: 0 4px 15px rgba(180, 139, 107, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            box-shadow: 0 6px 30px rgba(180, 139, 107, 0.6), 0 0 25px rgba(180, 139, 107, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 10px rgba(180, 139, 107, 0.4);
+        }
+
+        /* Enhanced Hover-Effekt für Links */
+        a:not(.btn):not(.article-card) {
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        a:not(.btn):not(.article-card):hover {
+            text-shadow: 0 0 10px rgba(180, 139, 107, 0.3);
+        }
+
+        /* Glow-Effekt bei Fokus */
+        :focus-visible {
+            outline: 2px solid #b48b6b;
+            outline-offset: 4px;
+            box-shadow: 0 0 15px rgba(180, 139, 107, 0.4);
+        }
+
+        /* Smooth Fade-in für Seiteladen */
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.98);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        body {
+            animation: fadeInScale 0.6s ease-out;
+        }
+
+        /* Smooth Scroll Verhalten */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Hover-Effekt auf Quote */
+        .quote-section {
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform: translateY(0);
+        }
+
+        .quote-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(84, 62, 42, 0.15);
+        }
+
+        /* Animierter Border auf Hover */
+        .article-card {
+            border: 1px solid rgba(133, 95, 60, 0.16);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .article-card:hover {
+            border-color: rgba(180, 139, 107, 0.5);
+            background: rgba(255, 249, 241, 0.98);
+        }
+
+        /* Effekt auf Bilder */
+        .card-image {
+            transition: transform 0.5s ease, filter 0.4s ease;
+        }
+
+        .article-card:hover .card-image {
+            transform: scale(1.05) rotate(-0.3deg);
+            filter: brightness(1.05) saturate(1.1);
+        }
+
+        /* Seat Figure Hover mit Glow */
+        .seat-figure a {
+            transition: all 0.3s ease;
+        }
+
+        .seat-figure a:hover {
+            filter: drop-shadow(0 0 12px rgba(180, 139, 107, 0.5));
+            transform: scale(1.08);
+        }
+
+        /* Parallax Text Effekt */
+        .hero h2, .section-title {
+            transition: text-shadow 0.3s ease;
+        }
+
+        .hero h2:hover, .section-title:hover {
+            text-shadow: 0 4px 12px rgba(84, 62, 42, 0.15);
+        }
+
+        /* Smooth Color Transition auf Buttons */
+        .btn {
+            background: linear-gradient(135deg, #b48b6b, #c8973a);
+            background-size: 200% 200%;
+            background-position: 0% 50%;
+            transition: background-position 0.4s ease, box-shadow 0.3s ease;
+        }
+
+        .btn:hover {
+            background-position: 100% 50%;
+        }
+
+        /* Animation für Counter */
+        @keyframes numberPopIn {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .counter-box strong {
+            display: inline-block;
+            animation: numberPopIn 0.4s ease-out;
+        }
+
+        /* Smooth Transition für Section */
+        .content {
+            transition: all 0.5s ease;
+        }
+
+        /* Glow auf Hero Image */
+        .hero-image {
+            transition: all 0.4s ease;
+        }
+
+        .hero-image:hover {
+            filter: drop-shadow(0 0 20px rgba(180, 139, 107, 0.4));
+        }
+
+        /* Smooth Transition für Footer */
+        footer {
+            transition: all 0.3s ease;
+        }
+
+        /* Micro-interaction auf Figcaption */
+        .seat-figure figcaption {
+            transition: all 0.3s ease;
+        }
+
+        .seat-figure a:hover ~ figcaption {
+            color: #b48b6b;
+        }
+
+        /* Ripple Effekt Simulator */
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        .btn:active::after {
+            animation: ripple 0.6s ease-out;
+        }
+
+        @keyframes ripple {
+            to {
+                width: 300px;
+                height: 300px;
+                opacity: 0;
+            }
+        }
+
+        /* Effekt für Text */
+        @keyframes textGlow {
+            0%, 100% {
+                text-shadow: 0 0 5px rgba(180, 139, 107, 0.3);
+            }
+            50% {
+                text-shadow: 0 0 15px rgba(180, 139, 107, 0.6);
+            }
+        }
+
+        .section-title {
+            animation: textGlow 3s ease-in-out infinite;
+        }
     </style>
     <style>
         /* Immediate inline defensive hide for removed article */
@@ -476,7 +684,7 @@
 
         <figure class="seat-figure">
             <a href="article-lern-lesemotivation.html" title="Zum Artikel Lern+Lesemotivation">
-                <img src="image.png" alt="Ein gemütlicher Sessel neben einem Bücherregal" />
+                <img src="image.png" alt="Ein gemütlicher Sessel neben einem Bücherregal" style="width: 48px; height: 36px; object-fit: cover;" />
             </a>
             <figcaption>Tippe den Sessel an, um zum neuen Artikel „Lern+Lesemotivation“ zu gelangen.</figcaption>
         </figure>
@@ -560,6 +768,86 @@
 
         loadQuote();
         updateCounter();
+
+        // ===== SCROLL ANIMATIONS =====
+        // Intersection Observer für Scroll-Effekte
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0) scale(1)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Scroll-Animation auf Cards und Sections
+        document.querySelectorAll('.article-card, .quote-section, .section-title').forEach((el) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px) scale(0.98)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(el);
+        });
+
+        // Parallax Effekt auf Hero Image beim Scroll
+        const heroImage = document.querySelector('.hero-image');
+        if (heroImage) {
+            window.addEventListener('scroll', () => {
+                const scrollY = window.scrollY;
+                heroImage.style.transform = `translateY(${scrollY * 0.3}px)`;
+            });
+        }
+
+        // Smooth Color Animation für Links beim Hover
+        document.querySelectorAll('a:not(.btn):not(.article-card)').forEach((link) => {
+            link.addEventListener('mouseenter', function() {
+                this.style.color = '#b48b6b';
+            });
+            link.addEventListener('mouseleave', function() {
+                this.style.color = '';
+            });
+        });
+
+        // Button Click Effekt
+        document.querySelectorAll('.btn').forEach((btn) => {
+            btn.addEventListener('click', function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const ripple = document.createElement('span');
+                ripple.style.position = 'absolute';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.style.width = '0';
+                ripple.style.height = '0';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(255, 255, 255, 0.6)';
+                ripple.style.pointerEvents = 'none';
+                ripple.style.animation = 'ripple 0.6s ease-out';
+                
+                this.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+
+        // Animated Counter Stagger
+        const counterValue = document.getElementById('counterValue');
+        if (counterValue) {
+            const originalUpdate = updateCounter;
+            updateCounter = async function() {
+                await originalUpdate.call(this);
+                counterValue.style.animation = 'none';
+                setTimeout(() => {
+                    counterValue.style.animation = 'numberPopIn 0.4s ease-out';
+                }, 10);
+            };
+        }
     </script>
     
 </body>
